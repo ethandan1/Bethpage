@@ -32,7 +32,7 @@ Bethpage_Rules = {
 #1. 8 Cancel/Modifys per month per user
 #2. 1 booking every 28 days per user on black, 1 booking every 14 days per user on Red, unlimited on Green, Blue, Yellow
 
-## Apriil COUNT 
+## Apriil 2025 COUNT 
 # Ethan: Cancellation/Modify: 3, Black: 0, Red: 0
 # Marchi: Cancellation/Modify: 0, Black: 0 , Red: 0
 # Richad: Cancellation/Modify: 0, Black: 0,  Red: 1
@@ -60,7 +60,6 @@ Account_Info_Dict = {
         },
         "Barry Yung": {
             "username": "barrylyung@gmail.com",
-            "Cookie": "PHPSESSID=o7tjo2692jt2b18gt31flrash2; __stripe_mid=f9bf1bd7-deac-48b6-bb03-1556ffa15803a794b1; _gid=GA1.2.347343975.1744669045; __stripe_sid=2bef6d26-c2a3-4bca-a3c7-27b0c3a7cffedac013; _gat_gtag_UA_101056671_2=1; _ga_Y0N3BHPPWG=GS1.1.1744669045.21.1.1744669183.0.0.0; _ga=GA1.1.651883819.1738084791; _dd_s=rum=1&id=cbe1e455-bd62-47f0-99a7-baf1e72c89d1&created=1744669044996&expire=1744670089731",
             "X-Authorization": ""
         }
     }
@@ -237,7 +236,6 @@ def BookTeeTime(user, course, date_and_booking_time, players):
     url = "https://foreupsoftware.com/index.php/api/booking/users/reservations"
 
     headers = headers_template.copy()
-    #headers["Cookie"] = Account_Info_Dict[user]["Cookie"]
     headers["X-Authorization"] = Account_Info_Dict[user]["X-Authorization"]
 
     payload = payload_template.copy()
@@ -270,9 +268,7 @@ def PullTeeTimes(user, course, date, min_time, max_time, min_players, max_player
     specials_only =  '0'
     api_key = 'no_limits'
 
-    #make user specific header adjustments
     headers = headers_template.copy()
-    #headers["Cookie"] = Account_Info_Dict[user]["Cookie"]
     headers["X-Authorization"] = Account_Info_Dict[user]["X-Authorization"]
 
     t = datetime.datetime.now()
